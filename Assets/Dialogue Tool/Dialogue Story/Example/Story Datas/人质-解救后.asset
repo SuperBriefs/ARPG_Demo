@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1898b4ff58186f47b81b92579d5cd5c, type: 3}
+  m_Name: "\u4EBA\u8D28-\u89E3\u6551\u540E"
+  m_EditorClassIdentifier: 
+  fileName: "\u4EBA\u8D28-\u89E3\u6551\u540E"
+  groupDatas: []
+  nodeDatas:
+  - title: "\u5F00\u59CB"
+    guid: e04f2dd67e3dfeb489cd88aeb3964541
+    type: 21
+    position: {x: 200, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 241e261f59aa51a459fa19fc3654f9a2
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u73A9\u5BB6"
+    guid: a83a6df147c058c4685609d3265306b3
+    type: 51
+    position: {x: 854.4, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 96222845aaa555049b15fe89ed8603ad
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 7572adaec92f59f409a09e8b27e24c11, type: 3}
+    roleName: "\u73A9\u5BB6"
+    sentenceDatas:
+    - text: "\u4E0D\u5BA2\u6C14"
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u7ED3\u675F"
+    guid: 96222845aaa555049b15fe89ed8603ad
+    type: 31
+    position: {x: 1203.2, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u4EBA\u8D28"
+    guid: 241e261f59aa51a459fa19fc3654f9a2
+    type: 51
+    position: {x: 480, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: a83a6df147c058c4685609d3265306b3
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 8d08f1102d4810942986b92e56467709, type: 3}
+    roleName: "\u4EBA\u8D28"
+    sentenceDatas:
+    - text: "\u611F\u8C22\u4F60\u6551\u4E86\u6211"
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  varDatas:
+  - key: "\u53D8\u91CF\u4E00"
+    value: 0
+  - key: "\u53D8\u91CF\u4E8C"
+    value: 0
+  - key: "\u53D8\u91CF\u4E09"
+    value: 0
+  noteDatas: []

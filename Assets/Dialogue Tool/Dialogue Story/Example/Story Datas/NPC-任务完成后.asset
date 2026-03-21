@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1898b4ff58186f47b81b92579d5cd5c, type: 3}
+  m_Name: "NPC-\u4EFB\u52A1\u5B8C\u6210\u540E"
+  m_EditorClassIdentifier: 
+  fileName: "NPC-\u4EFB\u52A1\u5B8C\u6210\u540E"
+  groupDatas: []
+  nodeDatas:
+  - title: "\u5F00\u59CB"
+    guid: 0c360ac545e418040b2f6d542c35dc29
+    type: 21
+    position: {x: 200, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: ec261fc6ef99b624d83231a03de24eef
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u7ED3\u675F"
+    guid: 8f88028825248314383c95bf40bee184
+    type: 31
+    position: {x: 1185.6, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u73A9\u5BB6"
+    guid: 93799572710e2d1458d1ccd39218b026
+    type: 51
+    position: {x: 829.6, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 8f88028825248314383c95bf40bee184
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 7572adaec92f59f409a09e8b27e24c11, type: 3}
+    roleName: "\u73A9\u5BB6"
+    sentenceDatas:
+    - text: "\u884C\u5427\uFF0C\u7B49\u5F85\u540E\u7EED\u66F4\u65B0\u3002"
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: NPC
+    guid: ec261fc6ef99b624d83231a03de24eef
+    type: 51
+    position: {x: 484.8, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 93799572710e2d1458d1ccd39218b026
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 8d08f1102d4810942986b92e56467709, type: 3}
+    roleName: NPC
+    sentenceDatas:
+    - text: "\u6211\u73B0\u5728\u6CA1\u4EC0\u4E48\u9700\u8981\u4F60\u505A\u7684\u4E86\uFF0C\u81EA\u5DF1\u53BB\u73A9\u5427\u3002"
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  varDatas:
+  - key: "\u53D8\u91CF\u4E00"
+    value: 0
+  - key: "\u53D8\u91CF\u4E8C"
+    value: 0
+  - key: "\u53D8\u91CF\u4E09"
+    value: 0
+  noteDatas: []

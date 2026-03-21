@@ -1,0 +1,218 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1898b4ff58186f47b81b92579d5cd5c, type: 3}
+  m_Name: "NPC-\u5F00\u59CB\u5BF9\u8BDD"
+  m_EditorClassIdentifier: 
+  fileName: "NPC-\u5F00\u59CB\u5BF9\u8BDD"
+  groupDatas: []
+  nodeDatas:
+  - title: "\u5F00\u59CB"
+    guid: 7d2c5ae48aee256418811810f20a0bff
+    type: 21
+    position: {x: 106.4, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 507c236df80105845af6cf865410e452
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: NPC-1
+    guid: 507c236df80105845af6cf865410e452
+    type: 51
+    position: {x: 359.2, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 5432c7fd213236c4482f471106389421
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 8d08f1102d4810942986b92e56467709, type: 3}
+    roleName: NPC
+    sentenceDatas:
+    - text: "\u6211\u7EC8\u4E8E\u7B49\u5230\u4F60\u4E86\uFF01"
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u9009\u62E9-1"
+    guid: 5432c7fd213236c4482f471106389421
+    type: 61
+    position: {x: 677.6, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4F60\u662F\u8C01\uFF1F"
+      nextNodeID: 60547f0143075d7469a1b5f72e7e345b
+      detectMode: 0
+      conditions: []
+    - text: "\u6709\u4EC0\u4E48\u4E8B\u60C5\u5417\uFF1F"
+      nextNodeID: 4d6465643305aaf47adb2f0bb215dbe8
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: NPC-2
+    guid: 60547f0143075d7469a1b5f72e7e345b
+    type: 51
+    position: {x: 996.8, y: -181.6}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 1c0cf20c368c32748a23da9b608e6a57
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 8d08f1102d4810942986b92e56467709, type: 3}
+    roleName: NPC
+    sentenceDatas:
+    - text: "\u4F60\u4E0D\u8981\u7BA1\u6211\u662F\u8C01\uFF0C\u4F46\u662F\u4F60\u73B0\u5728\u5F97\u5B8C\u6210\u4E00\u4E2A\u4EFB\u52A1"
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u9009\u62E9-2"
+    guid: 1c0cf20c368c32748a23da9b608e6a57
+    type: 61
+    position: {x: 1313.6, y: -181.6}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4F60\u8981\u6211\u505A\u4EC0\u4E48\uFF1F"
+      nextNodeID: 4d6465643305aaf47adb2f0bb215dbe8
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u9009\u62E9-3"
+    guid: e1de65ae034f92a4690f46de6618d3b3
+    type: 61
+    position: {x: 2015.2, y: 49.6}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u597D\u7684"
+      nextNodeID: 310e8f8c878f06741aa9f74e617fd050
+      detectMode: 0
+      conditions: []
+    - text: "\u6211\u624D\u4E0D\u8981"
+      nextNodeID: d7bec6cf0c8ca8d47bbe8da68edbad34
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u63A5\u53D7\u4EFB\u52A1"
+    guid: 310e8f8c878f06741aa9f74e617fd050
+    type: 71
+    position: {x: 2338.4, y: 12.800003}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 249141c1ddef07e448179c4be6bc9a7a
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 11400000, guid: 55abad2a92675574bbf0dd5a011acce5, type: 2}
+    toCheckQuest: {fileID: 0}
+  - title: "\u7ED3\u675F"
+    guid: d7bec6cf0c8ca8d47bbe8da68edbad34
+    type: 31
+    position: {x: 2338.4, y: 168.8}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: NPC-3
+    guid: 4d6465643305aaf47adb2f0bb215dbe8
+    type: 51
+    position: {x: 1617.6, y: 200}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: e1de65ae034f92a4690f46de6618d3b3
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 8d08f1102d4810942986b92e56467709, type: 3}
+    roleName: NPC
+    sentenceDatas:
+    - text: "\u6211\u73B0\u5728\u9700\u8981\u4F60\u53BB\u62EF\u6551\u4E09\u540D\u4EBA\u8D28\uFF0C\u6D88\u706D\u4ED6\u4EEC\u5468\u56F4\u7684\u90A3\u7FA4\u654C\u4EBA\u5373\u53EF\u62EF\u6551\u4EBA\u8D28\uFF0C\u5F53\u7136\uFF0C\u5728\u6574\u4E2A\u5730\u56FE\u90FD\u4F1A\u6709\u6570\u4E0D\u80DC\u6570\u7684\u654C\u4EBA\uFF0C\u5982\u679C\u4F60\u60F3\u77E5\u9053\u4EC0\u4E48\u7684\u8BDD\uFF0C\u7B49\u4F60\u5C06\u4ED6\u4EEC\u89E3\u6551\u51FA\u6765\u518D\u6765\u627E\u6211\u5427\u3002"
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  - title: "\u8DF3\u8F6C"
+    guid: 249141c1ddef07e448179c4be6bc9a7a
+    type: 60
+    position: {x: 2619.2, y: 12}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 11400000, guid: 1204522b94c86234d92c0251b1ce2128, type: 2}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+  varDatas:
+  - key: "\u53D8\u91CF\u4E00"
+    value: 0
+  - key: "\u53D8\u91CF\u4E8C"
+    value: 0
+  - key: "\u53D8\u91CF\u4E09"
+    value: 0
+  noteDatas: []
