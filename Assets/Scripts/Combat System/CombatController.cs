@@ -62,7 +62,7 @@ public class CombatController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !meeleFighter.IsTakingHit /*不在受击状态下才可以攻击*/)
+        if (Input.GetMouseButtonDown(0) && !meeleFighter.IsTakingHit /*不在受击状态下才可以攻击*/ && Cursor.visible == false /*鼠标不显示的时候才可以攻击*/)
         {
             var enemy = EnemyManager.Instance.GetAttackingEnemy();
             if(enemy != null && enemy.Fighter.IsCounterable && !meeleFighter.InAction && meeleFighter.InVisionToCounter(enemy))

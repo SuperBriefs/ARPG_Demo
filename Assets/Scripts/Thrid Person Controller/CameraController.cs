@@ -28,6 +28,10 @@ public class CameraController : MonoBehaviour
     private float trueDistance;
     private RaycastHit raycastHit;
 
+    private Quaternion lockedRotation;   // 保存锁定时的旋转
+    private bool isDialogueLock = false; // 是否处于对话锁定状态
+    private bool setLock = false;        // 是否需要锁定视角
+
 
     void Start()
     {
@@ -36,22 +40,57 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         trueDistance = maxDistance;
+
+        EventCenter.GetInstance().AddEventListener("锁定视角", () =>
+        {
+            setLock = true;
+        });
+        EventCenter.GetInstance().AddEventListener("开启视角", () =>
+        {
+            setLock = false;
+        });
     }
 
     void Update()
     {
-        // 相机移动方向是否要颠倒
-        invertXVal = invertX ? -1 : 1;
-        invertYVal = invertY ? -1 : 1;
+        if (setLock)
+        {
+            if (!isDialogueLock)
+            {
+                //第一次进入对话时保存当前旋转
+                lockedRotation = Quaternion.Euler(rotationX, rotationY, 0);
+                isDialogueLock = true;
+            }
+            var targetRotation = lockedRotation; //使用锁定的旋转
 
-        rotationX += Input.GetAxis("Mouse Y") * invertYVal * rotationSpeed;
-        rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
+            ApplyCameraTransform(targetRotation);
+        }
+        else
+        {
+            isDialogueLock = false;
+            
+            // 相机移动方向是否要颠倒
+            invertXVal = invertX ? -1 : 1;
+            invertYVal = invertY ? -1 : 1;
 
-        rotationY += Input.GetAxis("Mouse X") * invertXVal * rotationSpeed;
+            rotationX += Input.GetAxis("Mouse Y") * invertYVal * rotationSpeed;
+            rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
 
-        // 摄像机旋转
-        var targetRotation = Quaternion.Euler(rotationX, rotationY, 0);
+            rotationY += Input.GetAxis("Mouse X") * invertXVal * rotationSpeed;
 
+            // 摄像机旋转
+            var targetRotation = Quaternion.Euler(rotationX, rotationY, 0);
+
+            ApplyCameraTransform(targetRotation);
+        }
+    }
+
+    /// <summary>
+    /// 摄像机的旋转移动
+    /// </summary>
+    /// <param name="targetRotation"></param>
+    private void ApplyCameraTransform(Quaternion targetRotation)
+    {
         // 摄像机看的位置应该在人物胸部高度，不应该在脚底，需要增加一个偏移量
         var focusPosition = followTarget.position + new Vector3(framingOffset.x, framingOffset.y, 0);
 
@@ -68,7 +107,7 @@ public class CameraController : MonoBehaviour
         {
             trueDistance = Mathf.Lerp(trueDistance, maxDistance, Time.deltaTime * approachSpeed);
         }
-
+        
         transform.position = focusPosition - targetRotation * new Vector3(0, 0, trueDistance);
         transform.LookAt(focusPosition);
     }

@@ -131,14 +131,6 @@ namespace E.Story{
         [OnOpenAsset()]
         public static bool OnDoubleClick(int instanceID)
         {
-            // 获取窗口实例并打开
-            StoryEditorWindow wnd = (StoryEditorWindow)GetWindow(typeof(StoryEditorWindow));
-            if(wnd == null)
-            {
-                Open();
-            }
-            wnd.RemoveNotification();
-
             // 获取资产路径
             string fullPath = AssetDatabase.GetAssetPath(instanceID);
 
@@ -148,6 +140,14 @@ namespace E.Story{
             {
                 return false;
             }
+
+            // 获取窗口实例并打开
+            StoryEditorWindow wnd = (StoryEditorWindow)GetWindow(typeof(StoryEditorWindow));
+            if(wnd == null)
+            {
+                Open();
+            }
+            wnd.RemoveNotification();
 
             string str = "确认打开新故事并覆盖当前视图内容吗？未保存的数据将无法恢复";
             if(EditorUtility.DisplayDialog("警告", str, "确认", "取消"))

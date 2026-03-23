@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// 公共Mono模块
+/// 鍏叡Mono妯″潡
 /// </summary>
 public class MonoController : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class MonoController : MonoBehaviour
     }
 
     /// <summary>
-    /// 提供给外部提供的 添加帧更新事件的函数
+    /// 鎻愪緵缁欏閮ㄦ彁渚涚殑 娣诲姞甯ф洿鏂颁簨浠剁殑鍑芥暟
     /// </summary>
     /// <param name="fun"></param>
     public void AddUpdateListener(UnityAction fun)
@@ -31,7 +31,7 @@ public class MonoController : MonoBehaviour
     }
 
     /// <summary>
-    /// 提供给外部提供的 移除帧更新事件的函数
+    /// 鎻愪緵缁欏閮ㄦ彁渚涚殑 绉婚櫎甯ф洿鏂颁簨浠剁殑鍑芥暟
     /// </summary>
     /// <param name="fun"></param>
     public void RemoveUpdateListener(UnityAction fun)

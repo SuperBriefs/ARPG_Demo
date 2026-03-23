@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// û�̳�Mono�ĵ���ģʽ
+/// 没继承Mono的单例模式
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public class BaseManager<T> where T : class, new()

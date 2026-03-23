@@ -142,7 +142,7 @@ MonoBehaviour:
   - title: "\u63A5\u53D7\u4EFB\u52A1"
     guid: 310e8f8c878f06741aa9f74e617fd050
     type: 71
-    position: {x: 2338.4, y: 12.800003}
+    position: {x: 2338.4, y: 12.799995}
     note: "\u5907\u6CE8\u4FE1\u606F"
     choiceDatas:
     - text: "\u4E0B\u4E2A\u8282\u70B9"
@@ -161,7 +161,7 @@ MonoBehaviour:
   - title: "\u7ED3\u675F"
     guid: d7bec6cf0c8ca8d47bbe8da68edbad34
     type: 31
-    position: {x: 2338.4, y: 168.8}
+    position: {x: 2338.4, y: 168.79999}
     note: "\u5907\u6CE8\u4FE1\u606F"
     choiceDatas: []
     groupID: 
