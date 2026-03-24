@@ -155,7 +155,7 @@ namespace E.Story
         {
             if (!isStoryPlaying)
             {
-                Debug.LogError("故事未开始");
+                Debug.LogWarning("故事未开始");
                 return;
             }
 

@@ -4,14 +4,10 @@ using UnityEngine;
 
 namespace E.Story
 {
-    public class QuestManager
+    public class QuestManager : SingletonAutoMono<QuestManager>
     {
-        private static QuestManager instance = new QuestManager();
-
-        public static QuestManager Instance => instance;
-
-        private QuestManager(){}
-
+        private const string PANEL_NAME = "QuestPanel";
+        
         [Serializable]
         public class QuestTask
         {
@@ -27,6 +23,28 @@ namespace E.Story
 
         // 任务列表
         public List<QuestTask> tasks = new List<QuestTask>();
+
+        private bool isOpen;
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                isOpen = !isOpen;
+                if (isOpen)
+                {
+                    EventCenter.GetInstance().EventTrigger("锁定玩家");
+                    EventCenter.GetInstance().EventTrigger("锁定视角");
+                    UIManager.GetInstance().ShowPanel<QuestPanel>(PANEL_NAME, E_UI_Layer.System);
+                }
+                else
+                {
+                    EventCenter.GetInstance().EventTrigger("开启玩家");
+                    EventCenter.GetInstance().EventTrigger("开启视角");
+                    UIManager.GetInstance().HidePanel(PANEL_NAME);
+                }
+            }
+        }
 
         /// <summary>
         /// 更新任务完成进度

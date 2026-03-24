@@ -177,4 +177,13 @@ public class UIManager : BaseManager<UIManager>
 
         trigger.triggers.Add(entry);
     }
+
+    /// <summary>
+    /// 是否开启了任意面板
+    /// </summary>
+    /// <returns></returns>
+    public bool HasAnyPanel()
+    {
+        return panelDic.Count != 0;
+    }
 }

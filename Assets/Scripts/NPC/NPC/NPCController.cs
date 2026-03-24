@@ -27,14 +27,6 @@ public class NPCController : MonoBehaviour
         {
             dialogueController.ResetData();
         });
-        EventCenter.GetInstance().AddEventListener("锁定玩家", () =>
-        {
-            PlayerController.Instance.SetControl(false);
-        });
-        EventCenter.GetInstance().AddEventListener("开启玩家", () =>
-        {
-            PlayerController.Instance.SetControl(true);
-        });
     }
 
     void Update()
@@ -47,25 +39,9 @@ public class NPCController : MonoBehaviour
 
         if(canTalk && Input.GetKeyDown(KeyCode.E) && !dialogueController.IsActive())
         {
-            // 开启鼠标
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-
             // 开启当前对话
             GetNowDialogue();
             dialogueController.StartStory();
-        }
-        else if(dialogueController.IsActive())
-        {
-            // 开启鼠标
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            // 关闭鼠标
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 
