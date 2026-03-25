@@ -35,7 +35,7 @@ namespace E.Story
                 {
                     EventCenter.GetInstance().EventTrigger("锁定玩家");
                     EventCenter.GetInstance().EventTrigger("锁定视角");
-                    UIManager.GetInstance().ShowPanel<QuestPanel>(PANEL_NAME, E_UI_Layer.System);
+                    UIManager.GetInstance().ShowPanel<QuestPanel>(PANEL_NAME, E_UI_Layer.Mid);
                 }
                 else
                 {

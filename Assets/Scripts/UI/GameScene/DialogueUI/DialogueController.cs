@@ -40,7 +40,7 @@ namespace E.Story
             }
 
             isStoryPlaying = true;
-            UIManager.GetInstance().ShowPanel<DialoguePanel>(PANEL_NAME, E_UI_Layer.System);
+            UIManager.GetInstance().ShowPanel<DialoguePanel>(PANEL_NAME, E_UI_Layer.Mid);
             dialoguePanel.HideBranchs();
             
             EventCenter.GetInstance().EventTrigger("锁定玩家");
@@ -124,13 +124,14 @@ namespace E.Story
                 case NodeType.GetQuest:
                     Debug.Log($"执行接受任务节点：{nodeData.Title}");
                     // TODO: 任务面板更新
+                    GetQuest(nodeData.ToGetQuest);
                     NextStep();
                     break;
 
                 case NodeType.CheckQuest:
                     Debug.Log($"执行检测任务节点：{nodeData.Title}");
                     // TODO: 检测任务状态
-                    NextStep();
+                    CheckQuest(nodeData);
                     break;
 
                 case NodeType.Skip:
@@ -422,6 +423,49 @@ namespace E.Story
             nextNodeData = null;
             currentSentenceIndex = 0;
             varDatas = null;
+        }
+
+        /// <summary>
+        /// 接受任务
+        /// </summary>
+        public void GetQuest(QuestSO toGetQuest)
+        {
+            if(toGetQuest != null)
+            {
+                if (!QuestManager.GetInstance().HaveQuest(toGetQuest))
+                {
+                    QuestManager.QuestTask newTask = new QuestManager.QuestTask
+                    {
+                        questData = Instantiate(toGetQuest)
+                    };
+                    QuestManager.GetInstance().tasks.Add(newTask);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 检测当前任务是否完成并跳转到对应分支
+        /// </summary>
+        /// <returns></returns>
+        public void CheckQuest(NodeData checkNodeData)
+        {
+            if (QuestManager.GetInstance().HaveQuest(checkNodeData.ToCheckQuest))
+            {
+                if (QuestManager.GetInstance().GetTask(checkNodeData.ToCheckQuest).IsComplete)
+                {
+                    // 任务完成
+                    DoNode(checkNodeData.ChoiceDatas[0].NextNodeID);
+                }
+                else
+                {
+                    // 任务未完成
+                    DoNode(checkNodeData.ChoiceDatas[1].NextNodeID);
+                }
+            }
+            else
+            {
+                DoNode(checkNodeData.ChoiceDatas[1].NextNodeID);
+            }
         }
     }
 }

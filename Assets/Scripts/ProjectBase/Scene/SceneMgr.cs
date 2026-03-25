@@ -8,6 +8,13 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SceneMgr : BaseManager<SceneMgr>
 {
+    public enum Scene
+    {
+        MainScene,
+        GameScene,
+        LoadingScene
+    }
+    
     /// <summary>
     /// 切换场景 同步
     /// </summary>

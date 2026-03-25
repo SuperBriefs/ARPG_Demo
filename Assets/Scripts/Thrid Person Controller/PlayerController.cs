@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
     private bool hasControl;
+    private bool isDead;
 
     private float ySpeed;
 
@@ -56,11 +57,13 @@ public class PlayerController : MonoBehaviour
             targetRotation = transform.rotation;
             animator.SetFloat("forwardSpeed", 0);
 
-            if(meeleFighter.Health <= 0)
+            if(meeleFighter.Health <= 0 && !isDead)
             {
+                isDead = true;
                 //玩家死亡后解锁鼠标
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                EventCenter.GetInstance().EventTrigger("玩家死亡");
             }
 
             return;

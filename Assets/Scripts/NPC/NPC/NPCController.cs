@@ -18,7 +18,7 @@ public class NPCController : MonoBehaviour
 
         EventCenter.GetInstance().AddEventListener<StoryDataSO>("更新对话数据", (nextStory) =>
         {
-            if(nextStory != null)
+            if(nextStory != null && canTalk/* 通过当前是否canTalk确定要更新对话数据的对象 */)
             {
                 currentStoryDataSO = nextStory;
             }

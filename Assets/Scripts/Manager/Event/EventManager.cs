@@ -5,6 +5,8 @@ using UnityEngine;
 /// </summary>
 public class EventManager : SingletonAutoMono<EventManager>
 {
+    private const string TIP_PATH = "TipPanel";
+
     void Start()
     {
         EventCenter.GetInstance().AddEventListener("锁定玩家", () =>
@@ -25,6 +27,12 @@ public class EventManager : SingletonAutoMono<EventManager>
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+        });
+
+        EventCenter.GetInstance().AddEventListener("玩家死亡", () =>
+        {
+            // 显示提示面板
+            UIManager.GetInstance().ShowPanel<TipPanel>(TIP_PATH, E_UI_Layer.System);
         });
     }
 

@@ -186,4 +186,17 @@ public class UIManager : BaseManager<UIManager>
     {
         return panelDic.Count != 0;
     }
+
+    /// <summary>
+    /// 隐藏所有面板
+    /// </summary>
+    public void HideAllPanel()
+    {
+        // 先存储所有键值 再全部移除
+        List<string> panelKeys = new List<string>(panelDic.Keys);
+        foreach(string item in panelKeys)
+        {
+            HidePanel(item);
+        }
+    }
 }
