@@ -34,13 +34,11 @@ namespace E.Story
                 if (isOpen)
                 {
                     EventCenter.GetInstance().EventTrigger("锁定玩家");
-                    EventCenter.GetInstance().EventTrigger("锁定视角");
                     UIManager.GetInstance().ShowPanel<QuestPanel>(PANEL_NAME, E_UI_Layer.Mid);
                 }
                 else
                 {
                     EventCenter.GetInstance().EventTrigger("开启玩家");
-                    EventCenter.GetInstance().EventTrigger("开启视角");
                     UIManager.GetInstance().HidePanel(PANEL_NAME);
                 }
             }
@@ -68,7 +66,14 @@ namespace E.Story
                         }
 
                         // 每更新一次进度就检查是否完成任务
-                        task.questData.CheckQuestProgress();
+                        if (task.questData.CheckQuestProgress())
+                        {
+                            // 播放任务完成的音效
+                            MusicMgr.GetInstance().PlaySound("victory", false, (source) =>
+                            {
+                                StartCoroutine(RecoverAfterPlaying(source));
+                            });
+                        }
                     }
                 }
             }
@@ -106,6 +111,21 @@ namespace E.Story
                 }
             }
             return null;
+        }
+
+        /// <summary>
+        /// 回收音频
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="seconds"></param>
+        /// <returns></returns>
+        System.Collections.IEnumerator RecoverAfterPlaying(AudioSource source)
+        {
+            while (source.isPlaying)
+            {
+                yield return null;
+            }
+            MusicMgr.GetInstance().StopSound(source);
         }
     }
 }

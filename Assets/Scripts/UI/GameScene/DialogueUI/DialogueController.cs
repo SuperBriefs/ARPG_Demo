@@ -6,6 +6,7 @@ namespace E.Story
     public class DialogueController : MonoBehaviour
     {
         private const string PANEL_NAME = "DialoguePanel";
+        private const string INVENTORYPANEL_PATH = "InventoryPanel";
 
         [Header("主要组件")]
         [SerializeField] private DialoguePanel dialoguePanel;
@@ -44,7 +45,6 @@ namespace E.Story
             dialoguePanel.HideBranchs();
             
             EventCenter.GetInstance().EventTrigger("锁定玩家");
-            EventCenter.GetInstance().EventTrigger("锁定视角");
 
             DoNode(nodeData);
         }
@@ -62,7 +62,6 @@ namespace E.Story
             EventCenter.GetInstance().EventTrigger<StoryDataSO>("更新对话数据", nextStory);
             EventCenter.GetInstance().EventTrigger("重置对话管理器");
             EventCenter.GetInstance().EventTrigger("开启玩家");
-            EventCenter.GetInstance().EventTrigger("开启视角");
             UIManager.GetInstance().HidePanel(PANEL_NAME);
         }
 
@@ -123,15 +122,20 @@ namespace E.Story
 
                 case NodeType.GetQuest:
                     Debug.Log($"执行接受任务节点：{nodeData.Title}");
-                    // TODO: 任务面板更新
+                    // 任务面板更新
                     GetQuest(nodeData.ToGetQuest);
                     NextStep();
                     break;
 
                 case NodeType.CheckQuest:
                     Debug.Log($"执行检测任务节点：{nodeData.Title}");
-                    // TODO: 检测任务状态
+                    // 检测任务状态
                     CheckQuest(nodeData);
+                    break;
+
+                case NodeType.Rewards:
+                    ToGetRewards(nodeData);
+                    NextStep();
                     break;
 
                 case NodeType.Skip:
@@ -183,6 +187,7 @@ namespace E.Story
                 case NodeType.Layout:
                 case NodeType.GetQuest:
                 case NodeType.CheckQuest:
+                case NodeType.Rewards:
                     nodeID = currentNodeData.ChoiceDatas[0].NextNodeID;
                     nextNodeData = currentStory.GetNode(nodeID);
                     break;
@@ -439,6 +444,11 @@ namespace E.Story
                         questData = Instantiate(toGetQuest)
                     };
                     QuestManager.GetInstance().tasks.Add(newTask);
+                    // 播放接受任务的音效
+                    MusicMgr.GetInstance().PlaySound("start", false, (source) =>
+                    {
+                        StartCoroutine(RecoverAfterPlaying(source));
+                    });
                 }
             }
         }
@@ -466,6 +476,41 @@ namespace E.Story
             {
                 DoNode(checkNodeData.ChoiceDatas[1].NextNodeID);
             }
+        }
+
+        /// <summary>
+        /// 获取对应任务的奖励
+        /// </summary>
+        /// <param name="checkNodeData"></param>
+        public void ToGetRewards(NodeData checkNodeData)
+        {
+            // 发放任务奖励
+            foreach(ItemSO reward in checkNodeData.ToGetRewards.rewards)
+            {
+                InventoryManager.GetInstance().AddItem(reward);
+            }
+            // 开启背包界面时要实时更新显示面板
+            if (UIManager.GetInstance().GetPanel<InventoryPanel>(INVENTORYPANEL_PATH))
+            {
+                // 先回收 再显示
+                InventoryManager.GetInstance().RecoverInventoryItems();
+                InventoryManager.GetInstance().ShowInventoryItems(UIManager.GetInstance().GetPanel<InventoryPanel>(INVENTORYPANEL_PATH));
+            }
+        }
+
+        /// <summary>
+        /// 回收音频
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="seconds"></param>
+        /// <returns></returns>
+        System.Collections.IEnumerator RecoverAfterPlaying(AudioSource source)
+        {
+            while (source.isPlaying)
+            {
+                yield return null;
+            }
+            MusicMgr.GetInstance().StopSound(source);
         }
     }
 }

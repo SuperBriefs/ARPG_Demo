@@ -41,10 +41,12 @@ public class EventManager : SingletonAutoMono<EventManager>
         if (UIManager.GetInstance().HasAnyPanel())
         {
             EventCenter.GetInstance().EventTrigger("开启鼠标");
+            EventCenter.GetInstance().EventTrigger("锁定视角");
         }
         else
         {
             EventCenter.GetInstance().EventTrigger("锁定鼠标");
+            EventCenter.GetInstance().EventTrigger("开启视角");
         }
     }
 }

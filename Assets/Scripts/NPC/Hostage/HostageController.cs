@@ -51,6 +51,8 @@ public class HostageController : MonoBehaviour
 
     void Update()
     {
+        StateMachine.Execute();
+        
         if(canTalk && Input.GetKeyDown(KeyCode.E) && !dialogueController.IsActive())
         {
             // 开启当前对话
@@ -60,7 +62,8 @@ public class HostageController : MonoBehaviour
 
         if (!hasAddTaskProgress && HasSaved())
         {
-            // TODO: 切换动画
+            // 切换动画
+            animator.SetBool("HasSaved", true);
 
             StateMachine.ChangeState(stateDic[HostageStates.Saved]);
 

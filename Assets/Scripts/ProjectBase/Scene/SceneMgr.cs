@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -23,6 +24,10 @@ public class SceneMgr : BaseManager<SceneMgr>
     {
         // 场景同步加载
         SceneManager.LoadScene(name);
+        // 清空缓存池数据
+        PoolMgr.GetInstance().Clear();
+        // 清空背景音乐数据
+        MusicMgr.GetInstance().DeleteBKMusic();
         // 加载完成过后 才会去执行fun
         fun.Invoke();
     }
@@ -34,6 +39,10 @@ public class SceneMgr : BaseManager<SceneMgr>
     /// <param name="fun"></param>
     public void LoadSceneAsync(string name, UnityAction fun)
     {
+        // 清空缓存池数据
+        PoolMgr.GetInstance().Clear();
+        // 清空背景音乐数据
+        MusicMgr.GetInstance().DeleteBKMusic();
         MonoMgr.GetInstance().StartCoroutinee(ReallyLoadSceneAsync(name, fun));
     }
 

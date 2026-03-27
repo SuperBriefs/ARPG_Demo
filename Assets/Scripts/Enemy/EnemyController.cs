@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour
     [field: SerializeField] public float Fov { get; private set; } = 180;
 
     [field: SerializeField] public float AlertRange{ get; private set; } = 20f;
+    // 巡场坐标
+    [field: SerializeField] public List<Vector3> patrolPoints = new List<Vector3>();
+    // 血条
     [field: SerializeField] public HealthBarUI healthBarUI { get; private set; }
 
     public List<MeeleFighter> TargetsInRange { get; set; } = new List<MeeleFighter>();

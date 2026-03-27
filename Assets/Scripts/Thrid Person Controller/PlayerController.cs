@@ -1,4 +1,6 @@
+using System.Collections;
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     private float ySpeed;
 
+    private float maxHealth;
+
     public float RotationSpeed => rotationSpeed;
 
     public Vector3 InputDir { get; private set; }
@@ -48,6 +52,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        maxHealth = meeleFighter.Health;
+    }
+
     void Update()
     {
         //当攻击正在进行 或 人物生命小于等于0时，停止人物的逻辑
@@ -63,6 +72,11 @@ public class PlayerController : MonoBehaviour
                 //玩家死亡后解锁鼠标
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                // 播放死亡音效
+                MusicMgr.GetInstance().PlaySound("over", false, (source) =>
+                {
+                    StartCoroutine(RecoverAfterPlaying(source));
+                });
                 EventCenter.GetInstance().EventTrigger("玩家死亡");
             }
 
@@ -183,6 +197,43 @@ public class PlayerController : MonoBehaviour
     {
         return InputDir != Vector3.zero ? InputDir : transform.forward;
     } 
+
+    /// <summary>
+    /// 回血
+    /// </summary>
+    public bool AddHealth(int addHealth)
+    {
+        // 满血直接退出
+        if(meeleFighter.Health == maxHealth)
+        {
+            Debug.LogWarning("当前玩家满血，无法使用该道具");
+            return false;
+        }
+        else if(meeleFighter.Health < maxHealth)
+        {
+            meeleFighter.Health += addHealth;
+            if(meeleFighter.Health > maxHealth)
+            {
+                meeleFighter.Health = maxHealth;
+            }
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// 回收音频
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
+    IEnumerator RecoverAfterPlaying(AudioSource source)
+    {
+        while (source.isPlaying)
+        {
+            yield return null;
+        }
+        MusicMgr.GetInstance().StopSound(source);
+    }
 
     /// <summary>
     /// 为了在编辑模式下可以看清物理检测的范围

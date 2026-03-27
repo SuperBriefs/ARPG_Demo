@@ -761,6 +761,11 @@ namespace E.Story{
                         CheckQuestNode cNode = node as CheckQuestNode;
                         cNode.toCheckQuest = nodeData.ToCheckQuest;
                     }
+                    else if(node.Type == NodeType.Rewards)
+                    {
+                        RewardsNode rNode = node as RewardsNode;
+                        rNode.toGetRewards = nodeData.ToGetRewards;
+                    }
 
                     // 绘制节点
                     node.Draw();

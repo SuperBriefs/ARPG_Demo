@@ -7,7 +7,7 @@ public enum AttackState { Idle, Windup, Impact, Cooldown};
 
 public class MeeleFighter : MonoBehaviour
 {
-    [field : SerializeField] public float Health { get; private set; } = 25f;
+    [field : SerializeField] public float Health { get; set; } = 25f;
     [SerializeField] private GameObject sword;
 
     [SerializeField] private List<AttackData> attacks;
@@ -413,4 +413,51 @@ public class MeeleFighter : MonoBehaviour
 
     //武器处于抬起状态时并且攻击为第一次攻击时 玩家可以进行反击
     public bool IsCounterable => AttackState == AttackState.Windup && comboCount == 0;
+
+    public void SwordEvent()
+    {
+        MusicMgr.GetInstance().PlaySound("sword", false, (source) =>
+        {
+            StartCoroutine(RecoverAfterPlaying(source));
+        });
+    }
+
+    public void KickEvent()
+    {
+        MusicMgr.GetInstance().PlaySound("kick", false, (source) =>
+        {
+            StartCoroutine(RecoverAfterPlaying(source));
+        });
+    }
+
+    public void DeadEvent()
+    {
+        MusicMgr.GetInstance().PlaySound("dead", false, (source) =>
+        {
+            StartCoroutine(RecoverAfterPlaying(source));
+        });
+    }
+
+    public void WoundEvent()
+    {
+        MusicMgr.GetInstance().PlaySound("wound", false, (source) =>
+        {
+            StartCoroutine(RecoverAfterPlaying(source));
+        });
+    }
+
+    /// <summary>
+    /// 回收音频
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
+    IEnumerator RecoverAfterPlaying(AudioSource source)
+    {
+        while (source.isPlaying)
+        {
+            yield return null;
+        }
+        MusicMgr.GetInstance().StopSound(source);
+    }
 }

@@ -28,7 +28,7 @@ public class QuestPanel : BasePanel
     public Image rewardUI;
 
     private UnityAction<QuestSO> showRequireAction;
-    private UnityAction<List<Sprite>> showRewardAction;
+    private UnityAction<List<ItemSO>> showRewardAction;
 
     void Start()
     {
@@ -104,7 +104,7 @@ public class QuestPanel : BasePanel
     /// 设置任务奖励显示
     /// </summary>
     /// <param name="reward"></param>
-    public void SetRewardItem(List<Sprite> rewardData)
+    public void SetRewardItem(List<ItemSO> rewardData)
     {
         // 清空任务奖励列表（实时更新）
         foreach (Transform item in rewardTransform)
@@ -113,10 +113,10 @@ public class QuestPanel : BasePanel
         }
 
         // 显示任务奖励列表
-        foreach (Sprite reward in rewardData)
+        foreach (ItemSO reward in rewardData)
         {
-            Image item = Instantiate(rewardUI, rewardTransform);
-            item.sprite = reward;
+            Image rewardImage = Instantiate(rewardUI, rewardTransform);
+            rewardImage.sprite = reward.image;
         }
     }
 

@@ -5,6 +5,12 @@ public class GameManager : SingletonAutoMono<GameManager>
     // 退出面板
     private const string QuitPanel_Path = "QuitPanel";
 
+    void Start()
+    {
+        // 进入游戏场景 开启背景音乐
+        MusicMgr.GetInstance().PlayBKMusic("Night Ambient");
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -18,7 +24,6 @@ public class GameManager : SingletonAutoMono<GameManager>
             // 显示退出面板
             UIManager.GetInstance().ShowPanel<QuitPanel>(QuitPanel_Path, E_UI_Layer.Top);
             EventCenter.GetInstance().EventTrigger("锁定玩家");
-            EventCenter.GetInstance().EventTrigger("锁定视角");
         }
     }
 }

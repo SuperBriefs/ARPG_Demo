@@ -29,7 +29,6 @@ public class QuitPanel : BasePanel
             // 隐藏面板
             UIManager.GetInstance().HidePanel(QuitPanel_Path);
             EventCenter.GetInstance().EventTrigger("开启玩家");
-            EventCenter.GetInstance().EventTrigger("开启视角");
         }
     }
 }

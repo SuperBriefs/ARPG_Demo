@@ -36,5 +36,8 @@ public class MainPanel : MonoBehaviour
             // 退出游戏
             Application.Quit();
         });
+
+        // 进入主菜单时 开启背景音乐
+        MusicMgr.GetInstance().PlayBKMusic("Night Ambient");
     }
 }

@@ -102,6 +102,11 @@ namespace E.Story
                     level = 1,
                     userData = NodeType.CheckQuest
                 },
+                new SearchTreeEntry(new GUIContent("接受奖励", indentationIcon))
+                {
+                    level = 1,
+                    userData = NodeType.Rewards
+                },
             };
 
             return searchTreeEntries;
@@ -133,6 +138,7 @@ namespace E.Story
                 case NodeType.Skip:
                 case NodeType.GetQuest:
                 case NodeType.CheckQuest:
+                case NodeType.Rewards:
                 case NodeType.Layout:
                     graphViewer.CreateNode(SearchTreeEntry.content.text, type, localMousePosition);
                     return true;

@@ -23,7 +23,7 @@ public class QuestNameButton : MonoBehaviour
         //TODO: 显示任务需求列表
         EventCenter.GetInstance().EventTrigger<QuestSO>("显示任务需求列表", currentData);
         //TODO: 设置任务奖励显示
-        EventCenter.GetInstance().EventTrigger<List<Sprite>>("任务奖励显示", currentData.rewards);
+        EventCenter.GetInstance().EventTrigger<List<ItemSO>>("任务奖励显示", currentData.rewards);
     }
 
     /// <summary>

@@ -34,6 +34,7 @@ MonoBehaviour:
     nextStoryDataSO: {fileID: 0}
     toGetQuest: {fileID: 0}
     toCheckQuest: {fileID: 0}
+    toGetRewards: {fileID: 0}
   - title: "\u68C0\u6D4B\u4EFB\u52A1"
     guid: a392cd9d2b062cb4a81bd569bf39678b
     type: 72
@@ -57,6 +58,7 @@ MonoBehaviour:
     nextStoryDataSO: {fileID: 0}
     toGetQuest: {fileID: 0}
     toCheckQuest: {fileID: 11400000, guid: 55abad2a92675574bbf0dd5a011acce5, type: 2}
+    toGetRewards: {fileID: 0}
   - title: NPC-1
     guid: d5596ce1f46219345a86b6f1779c6f0f
     type: 51
@@ -77,6 +79,7 @@ MonoBehaviour:
     nextStoryDataSO: {fileID: 0}
     toGetQuest: {fileID: 0}
     toCheckQuest: {fileID: 0}
+    toGetRewards: {fileID: 0}
   - title: NPC-2
     guid: 13dfbb67f938b334e92c224e501d7779
     type: 51
@@ -98,6 +101,7 @@ MonoBehaviour:
     nextStoryDataSO: {fileID: 0}
     toGetQuest: {fileID: 0}
     toCheckQuest: {fileID: 0}
+    toGetRewards: {fileID: 0}
   - title: "\u7ED3\u675F"
     guid: b0e7f3d85473ff249ac4264c9cc2b153
     type: 31
@@ -113,6 +117,7 @@ MonoBehaviour:
     nextStoryDataSO: {fileID: 0}
     toGetQuest: {fileID: 0}
     toCheckQuest: {fileID: 0}
+    toGetRewards: {fileID: 0}
   - title: NPC-3
     guid: 685e18c3972d77b448a89c382a88ff75
     type: 51
@@ -120,7 +125,7 @@ MonoBehaviour:
     note: "\u5907\u6CE8\u4FE1\u606F"
     choiceDatas:
     - text: "\u4E0B\u4E2A\u8282\u70B9"
-      nextNodeID: 932d08f8311002b4cba4f936a1b9a9f4
+      nextNodeID: 0aa48b538739915419174b51a8f52c1b
       detectMode: 0
       conditions: []
     groupID: 
@@ -133,6 +138,7 @@ MonoBehaviour:
     nextStoryDataSO: {fileID: 0}
     toGetQuest: {fileID: 0}
     toCheckQuest: {fileID: 0}
+    toGetRewards: {fileID: 0}
   - title: "\u73A9\u5BB6-1"
     guid: f3a8e6d3b3164164c999d8d4af3ff8c7
     type: 51
@@ -153,10 +159,27 @@ MonoBehaviour:
     nextStoryDataSO: {fileID: 0}
     toGetQuest: {fileID: 0}
     toCheckQuest: {fileID: 0}
+    toGetRewards: {fileID: 0}
+  - title: "\u8DF3\u8F6C"
+    guid: b5c917f2aa2cf94498962f30b3ab5dfd
+    type: 60
+    position: {x: 2353.6, y: -132}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 11400000, guid: b6ad65c774282ad44ba469ccdbf4fa05, type: 2}
+    toGetQuest: {fileID: 0}
+    toCheckQuest: {fileID: 0}
+    toGetRewards: {fileID: 0}
   - title: "\u73A9\u5BB6-2"
     guid: 932d08f8311002b4cba4f936a1b9a9f4
     type: 51
-    position: {x: 1700, y: -132}
+    position: {x: 1991.2, y: -132}
     note: "\u5907\u6CE8\u4FE1\u606F"
     choiceDatas:
     - text: "\u4E0B\u4E2A\u8282\u70B9"
@@ -173,21 +196,27 @@ MonoBehaviour:
     nextStoryDataSO: {fileID: 0}
     toGetQuest: {fileID: 0}
     toCheckQuest: {fileID: 0}
-  - title: "\u8DF3\u8F6C"
-    guid: b5c917f2aa2cf94498962f30b3ab5dfd
-    type: 60
-    position: {x: 2023.2, y: -132}
+    toGetRewards: {fileID: 0}
+  - title: "\u63A5\u53D7\u5956\u52B1"
+    guid: 0aa48b538739915419174b51a8f52c1b
+    type: 73
+    position: {x: 1733.6, y: -132}
     note: "\u5907\u6CE8\u4FE1\u606F"
-    choiceDatas: []
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 932d08f8311002b4cba4f936a1b9a9f4
+      detectMode: 0
+      conditions: []
     groupID: 
     bgi: {fileID: 0}
     portrait: {fileID: 0}
     roleName: 
     sentenceDatas: []
     editVarDatas: []
-    nextStoryDataSO: {fileID: 11400000, guid: b6ad65c774282ad44ba469ccdbf4fa05, type: 2}
+    nextStoryDataSO: {fileID: 0}
     toGetQuest: {fileID: 0}
     toCheckQuest: {fileID: 0}
+    toGetRewards: {fileID: 11400000, guid: 55abad2a92675574bbf0dd5a011acce5, type: 2}
   varDatas:
   - key: "\u53D8\u91CF\u4E00"
     value: 0

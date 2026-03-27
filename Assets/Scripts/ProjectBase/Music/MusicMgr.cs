@@ -90,6 +90,14 @@ public class MusicMgr : BaseManager<MusicMgr>
     }
 
     /// <summary>
+    /// 在场景切换时 删除背景音乐
+    /// </summary>
+    public void DeleteBKMusic()
+    {
+        bkMusic = null;
+    }
+
+    /// <summary>
     /// 暂停所有当前正在播放的音效（不归还对象池）
     /// </summary>
     public void PauseAllSounds()

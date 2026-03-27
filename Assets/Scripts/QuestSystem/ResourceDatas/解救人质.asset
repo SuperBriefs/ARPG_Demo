@@ -19,4 +19,5 @@ MonoBehaviour:
   - name: "\u4EBA\u8D28"
     requireAmount: 3
     currentAmount: 0
-  rewards: []
+  rewards:
+  - {fileID: 11400000, guid: 2c7ee570b2b3c8f4085aee6e71654db2, type: 2}

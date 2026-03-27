@@ -85,5 +85,9 @@ namespace E.Story
         /// 判断任务
         /// </summary>
         CheckQuest = 72,
+        /// <summary>
+        /// 发布奖励节点
+        /// </summary>
+        Rewards = 73,
     }
 }

@@ -27,6 +27,7 @@ namespace E.Story
 
         [SerializeField] private QuestSO toGetQuest;
         [SerializeField] private QuestSO toCheckQuest;
+        [SerializeField] private QuestSO toGetRewards;
 
 
         /// <summary>
@@ -102,5 +103,10 @@ namespace E.Story
         /// 要检测是否完成的任务
         /// </summary>
         public QuestSO ToCheckQuest { get => toCheckQuest; set => toCheckQuest = value; }
+        /// <summary>
+        /// 获取当前任务的所有奖励
+        /// </summary>
+        /// <value></value>
+        public QuestSO ToGetRewards { get => toGetRewards; set => toGetRewards = value; }
     }
 }

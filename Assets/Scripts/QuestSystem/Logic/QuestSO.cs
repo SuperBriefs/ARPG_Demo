@@ -7,6 +7,8 @@ namespace E.Story
     [CreateAssetMenu(fileName = "New Quest", menuName = "Quest/Quest Data")]
     public class QuestSO : ScriptableObject
     {
+        private const string INVENTORYPANEL_PATH = "InventoryPanel";
+
         [Serializable]
         public class QuestRequire
         {
@@ -30,12 +32,12 @@ namespace E.Story
         // 任务需求列表
         public List<QuestRequire> questRequires = new List<QuestRequire>();
         // TODO: 任务奖励列表(与后续背包系统中的物体关联)
-        public List<Sprite> rewards = new List<Sprite>();
+        public List<ItemSO> rewards = new List<ItemSO>();
 
         /// <summary>
         /// 检查任务完成情况
         /// </summary>
-        public void CheckQuestProgress()
+        public bool CheckQuestProgress()
         {
             List<QuestRequire> finishedRequire = new List<QuestRequire>();
             foreach(QuestRequire require in questRequires)
@@ -53,6 +55,8 @@ namespace E.Story
             {
                 Debug.Log(questName + "任务完成");
             }
+
+            return isComplete;
         }
 
         /// <summary>
@@ -60,9 +64,17 @@ namespace E.Story
         /// </summary>
         public void GiveRewards()
         {
-            foreach(Sprite reward in rewards)
+            foreach(ItemSO reward in rewards)
             {
-                Debug.Log("获得奖励: " + reward.name);
+                InventoryManager.GetInstance().AddItem(reward);
+
+                // 开启背包界面时要实时更新显示面板
+                if (UIManager.GetInstance().GetPanel<InventoryPanel>(INVENTORYPANEL_PATH))
+                {
+                    // 先回收 再显示
+                    InventoryManager.GetInstance().RecoverInventoryItems();
+                    InventoryManager.GetInstance().ShowInventoryItems(UIManager.GetInstance().GetPanel<InventoryPanel>(INVENTORYPANEL_PATH));
+                }
             }
         }
     }

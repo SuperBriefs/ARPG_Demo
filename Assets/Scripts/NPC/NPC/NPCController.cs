@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using E.Story;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class NPCController : MonoBehaviour
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private StoryDataSO currentStoryDataSO;
     [SerializeField] private TipController tipController;
+
+    public StateMachine<NPCController> StateMachine { get; private set; }
+    public Dictionary<NPCStates, State<NPCController>> stateDic;
 
     private bool canTalk = false;
 
@@ -31,6 +35,8 @@ public class NPCController : MonoBehaviour
 
     void Update()
     {
+        //StateMachine.Execute();
+
         Vector3 direction = PlayerController.Instance.transform.position - transform.position;
         direction.y = 0;
 
@@ -47,14 +53,14 @@ public class NPCController : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        //TODO: 显示可以进行对话的UI
+        // 显示可以进行对话的UI
         tipController.Show();
         canTalk = true;
     }
 
     void OnTriggerExit(Collider other)
     {
-        //TODO: 隐藏可以进行对话的UI
+        // 隐藏可以进行对话的UI
         tipController.Hide();
         canTalk = false;
     }
